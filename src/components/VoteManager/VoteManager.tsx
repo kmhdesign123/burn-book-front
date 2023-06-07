@@ -23,6 +23,10 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
   )
   const profileRating = voteCount ? voteSum / voteCount : 1
 
+  const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
+    const newValue = parseInt(evt.currentTarget.id)
+  }
+  
   return (
     <section>
       {ratingOptions.map((rating: number): JSX.Element => (
