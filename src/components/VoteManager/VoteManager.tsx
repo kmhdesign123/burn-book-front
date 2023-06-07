@@ -13,6 +13,15 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
 	const { profile } = props
 
   const ratingOptions = [ 1, 2, 3, 4, 5 ]
+  const voteCount = profile.votesReceived.length
+
+  const voteSum: number = profile.votesReceived.reduce(
+    (sum: number, v: { value: number }): number => {
+      return sum + v.value
+    },
+    0
+  )
+  const profileRating = voteCount ? voteSum / voteCount : 1
 
   return (
     <section>
@@ -20,7 +29,7 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
         <img
           id={rating.toString()}
           key={rating}
-          src={noLipstick}
+          src={rating <= profileRating ? lipstick : noLipstick}
 					alt="Lipstick Print"
         />
       ))}
