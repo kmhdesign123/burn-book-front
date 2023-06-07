@@ -1,3 +1,6 @@
+// components
+import VoteManager from '../VoteManager/VoteManager'
+
 // assets
 import defaultPic from '../../assets/icons/profile.png'
 
@@ -17,6 +20,9 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
     <article>
       <img src={profilePic} alt={`${profile.name}'s avatar`} />
       <h1>{profile.name}</h1>
+  
+      <VoteManager { ...props } />
+  
     </article>
   )
 }
