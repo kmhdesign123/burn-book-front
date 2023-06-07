@@ -4,7 +4,12 @@ import styles from './Profiles.module.css'
 // types
 import { Profile } from '../../types/models'
 
-const Profiles = (props): JSX.Element => {
+interface ProfilesProps {
+	profiles: Profile[];
+}
+
+const Profiles = (props: ProfilesProps): JSX.Element => {
+  const { profiles } = props
   if (!profiles.length) {
     return <main className={styles.container}><h1>Loading...</h1></main>
   }
