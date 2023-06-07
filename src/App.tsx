@@ -65,7 +65,9 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <Profiles
-              profiles={profiles} />
+              profiles={profiles}
+              handleVote={handleVote}
+              />
             </ProtectedRoute>
           }
         />

@@ -5,9 +5,11 @@ import styles from './Profiles.module.css'
 
 // types
 import { Profile } from '../../types/models'
+import { VoteManagerFormData } from '../../types/forms'
 
 interface ProfilesProps {
 	profiles: Profile[];
+  handleVote: (formData: VoteManagerFormData) => Promise<void>;
 }
 
 const Profiles = (props: ProfilesProps): JSX.Element => {
@@ -22,6 +24,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
         <ProfileCard
           key={profile.id}
           profile={profile}
+          handleVote={props.handleVote}
         />
       )}
     </main>
