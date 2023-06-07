@@ -21,7 +21,7 @@ import './App.css'
 
 // types
 import { User, Profile } from './types/models'
-
+import { VoteManagerFormData } from './types/forms'
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
@@ -51,18 +51,9 @@ function App(): JSX.Element {
     setUser(authService.getUser())
   }
 
-  
-  useEffect((): void => {
-    const fetchProfiles = async (): Promise<void> => {
-      try {
-        const profileData: Profile[] = await profileService.getAllProfiles()
-        setProfiles(profileData)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    user ? fetchProfiles() : setProfiles([])
-  }, [user])
+  const handleVote = async(formData: VoteManagerFormData): Promise<void> => {
+    console.log(formData)
+  }
 
   return (
     <>
