@@ -72,11 +72,13 @@ const LoginPage = (props: AuthPageProps): JSX.Element => {
             onChange={handleChange}
           />
         </label>
-        <div>
-          <Link to="/">Cancel</Link>
+        <div className={styles.inputContainer}>
           <button className={styles.button} disabled={isFormInvalid()}>
             Log In
           </button>
+          <Link to="/">
+            <button>Cancel</button>
+          </Link>
         </div>
       </form>
     </main>
