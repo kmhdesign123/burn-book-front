@@ -1,3 +1,6 @@
+// assets
+import logo from '../../assets/logo_spalsh.svg'
+
 // css
 import styles from './Landing.module.css'
 
@@ -10,11 +13,18 @@ interface LandingProps {
 
 const Landing = (props: LandingProps): JSX.Element => {
   const { user } = props
+  const handleDeleteAccount = async(): Promise<void> => {
 
+  }
   return (
     <main className={styles.container}>
-      <h1>Burn Book</h1>
-      {/* add logo image in place of text */}
+      <img src={logo} alt="A meow meow bean" />
+      
+      { user && 
+        <button onClick={handleDeleteAccount}>
+          DELETE ACCOUNT
+        </button>
+      }
     </main>
   )
 }
