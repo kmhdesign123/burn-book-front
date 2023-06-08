@@ -48,7 +48,7 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
           onClick={handleClick}
           onMouseOver={handleHover}
           onMouseLeave={handleHover}
-          src={rating <= profileRating ? lipstick : noLipstick}
+          src={rating <= (hover ?? profileRating) ? bean : noBean} 
 					alt="Lipstick Print"
         />
       ))}
