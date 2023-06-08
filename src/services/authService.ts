@@ -76,5 +76,15 @@ async function changePassword(
     tokenService.setToken(json.token)
   }
 }
+async function deleteAccount(): Promise<void> {
+  await fetch(`${BASE_URL}/delete`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+    }
+  })
+}
 
-export { signup, getUser, logout, login, changePassword }
+// and don't forget to export it! 
+
+export { signup, getUser, logout, login, changePassword, deleteAccount }
