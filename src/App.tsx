@@ -15,6 +15,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
+import * as voteService from './services/voteService'
 
 // styles
 import './App.css'
@@ -52,7 +53,15 @@ function App(): JSX.Element {
   }
 
   const handleVote = async(formData: VoteManagerFormData): Promise<void> => {
-    console.log(formData)
+    try {
+      const updatedProfile = await voteService.castVote(formData)
+
+      setProfiles(profiles.map(profile => (
+        profile.id === updatedProfile.id ? updatedProfile : profile
+      )))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
