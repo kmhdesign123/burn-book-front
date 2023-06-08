@@ -91,11 +91,11 @@ const Signup = (props: AuthPageProps): JSX.Element => {
       <h1>Sign Up</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
+        <label className={styles.inputContainer}>
           Name
           <input type="text" value={name} name="name" onChange={handleChange} />
         </label>
-        <label className={styles.label}>
+        <label className={styles.inputContainer}>
           Email
           <input
             type="text"
@@ -104,7 +104,7 @@ const Signup = (props: AuthPageProps): JSX.Element => {
             onChange={handleChange}
           />
         </label>
-        <label className={styles.label}>
+        <label className={styles.inputContainer}>
           Password
           <input
             type="password"
@@ -113,7 +113,7 @@ const Signup = (props: AuthPageProps): JSX.Element => {
             onChange={handleChange}
           />
         </label>
-        <label className={styles.label}>
+        <label className={styles.inputContainer}>
           Confirm Password
           <input
             type="password"
@@ -122,7 +122,7 @@ const Signup = (props: AuthPageProps): JSX.Element => {
             onChange={handleChange}
           />
         </label>
-        <label className={styles.label}>
+        <label className={styles.inputContainer}>
           Upload Photo
           <input 
             type="file" 
@@ -131,14 +131,16 @@ const Signup = (props: AuthPageProps): JSX.Element => {
             ref={imgInputRef}
           />
         </label>
-        <div>
-          <Link to="/">Cancel</Link>
+        <div className={styles.inputContainer}>
           <button
             className={styles.button}
             disabled={ isFormInvalid() || isSubmitted }
           >
-            {!isSubmitted ? 'Sign Up' : '🚀 Sending...'}
+            {!isSubmitted ? 'Sign Up' : 'Sending...'}
           </button>
+          <Link to="/">
+            <button>Cancel</button>
+          </Link>
         </div>
       </form>
     </main>

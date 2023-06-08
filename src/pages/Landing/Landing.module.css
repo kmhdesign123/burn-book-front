@@ -1,5 +1,28 @@
 .container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+}
+
+
+.container img {
+  width: 700px;
+  margin: 40px 0px 80px;
+}
+
+.container button {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  border-radius: 5px;
+  text-align: center;
+  background: black;
+  border: none;
+  padding: 10px 24px 10px 24px;
+  margin: -50px 0 25px;
+  box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
 }

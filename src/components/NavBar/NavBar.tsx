@@ -1,6 +1,10 @@
 // npm modules
 import { NavLink } from 'react-router-dom'
 
+// assets
+import logo from '../../assets/logo_lipstick.svg'
+
+
 // types
 import { User } from '../../types/models'
 
@@ -14,16 +18,18 @@ const NavBar = (props: NavBarProps): JSX.Element => {
   
   return (
     <nav>
+      <NavLink to="/">
+        <img src={logo} alt="Lipstick Print Logo" />
+      </NavLink>
       {user ?
         <ul>
-          <li>Welcome, {user.name}</li>
-          <li><NavLink to="/profiles">Profiles</NavLink></li>
-          <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
+          <li><NavLink to="/profiles">The Burn Book</NavLink></li>
+          <li><NavLink to="" onClick={handleLogout}>Log out</NavLink></li>
         </ul>
       :
         <ul>
-          <li><NavLink to="/auth/login">Log In</NavLink></li>
-          <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
+          <li><NavLink to="/auth/login">Login</NavLink></li>
+          <li><NavLink to="/auth/signup">Sign-Up</NavLink></li>
         </ul>
       }
     </nav>
