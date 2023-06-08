@@ -17,7 +17,7 @@ interface VoteManagerProps {
 const VoteManager = (props: VoteManagerProps): JSX.Element => {
 	const { profile, handleVote } = props
 
-  const [hover, setHover] = useState<string | null>(null)
+  const [hover, setHover] = useState<number | null>(null)
 
   const ratingOptions = [ 1, 2, 3, 4, 5 ]
   const voteCount = profile.votesReceived.length
@@ -31,9 +31,10 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
     const newValue = parseInt(evt.currentTarget.id)
     handleVote({ value: newValue, profileId: profile.id })
   }
+
   const handleHover = (evt: React.MouseEvent): void => {
     if (evt.type === 'mouseover') {
-      setHover(evt.currentTarget.id)
+      setHover(parseInt(evt.currentTarget.id))
     } else if (evt.type === 'mouseleave') {
       setHover(null)
     }
@@ -48,7 +49,7 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
           onClick={handleClick}
           onMouseOver={handleHover}
           onMouseLeave={handleHover}
-          src={rating <= (hover ?? profileRating) ? bean : noBean} 
+          src={rating <= (hover ?? profileRating) ? lipstick : noLipstick} 
 					alt="Lipstick Print"
         />
       ))}
