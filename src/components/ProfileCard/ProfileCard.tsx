@@ -6,9 +6,11 @@ import defaultPic from '../../assets/icons/profile.png'
 
 // types
 import { Profile } from '../../types/models'
+import { VoteManagerFormData } from '../../types/forms'
 
 interface ProfileCardProps {
-  profile: Profile;
+	profile: Profile;
+  handleVote: (formData: VoteManagerFormData) => Promise<void>;
 }
 
 const ProfileCard = (props: ProfileCardProps): JSX.Element => {

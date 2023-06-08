@@ -20,9 +20,9 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
 
   return (
     <main className='list'>
-      {profiles.map((profile: Profile) =>
+      {props.profiles.map((profile: Profile) =>
         <ProfileCard
-          key={profile.id}
+          key={profile.id.toString()}
           profile={profile}
           handleVote={props.handleVote}
         />

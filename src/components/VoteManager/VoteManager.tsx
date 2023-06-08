@@ -16,13 +16,10 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
 
   const ratingOptions = [ 1, 2, 3, 4, 5 ]
   const voteCount = profile.votesReceived.length
+  let voteSum = 0
 
-  const voteSum: number = profile.votesReceived.reduce(
-    (sum: number, v: { value: number }): number => {
-      return sum + v.value
-    },
-    0
-  )
+  profile.votesReceived.forEach(vote => voteSum += vote.value)
+
   const profileRating = voteCount ? voteSum / voteCount : 1
 
   const handleClick = (evt: React.MouseEvent<HTMLImageElement>): void => {
@@ -36,6 +33,7 @@ const VoteManager = (props: VoteManagerProps): JSX.Element => {
         <img
           id={rating.toString()}
           key={rating}
+          onClick={handleClick}
           src={rating <= profileRating ? lipstick : noLipstick}
 					alt="Lipstick Print"
         />
